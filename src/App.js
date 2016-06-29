@@ -5,6 +5,13 @@ import Contactar from './views/Contactar'
 import Cervezas from './views/Cervezas'
 import Template from './layout/Template'
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
+
 export default class App extends Component {
   render() {
     return (
