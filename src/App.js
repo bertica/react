@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import Cerveza from './Cerveza'
 export default class App extends Component {
-  render() {
+
+  getCervezas() {
     var cervezas = require('./cervezas.json')
-   return (
-     <div>
-       <h1>Mi lista</h1>
-       {cervezas.map(cerveza => <Cerveza key={cerveza.Nombre} marca={cerveza.Nombre} envase={cerveza.Envase}/>)}
-     </div>
+    return cervezas.map(cerveza =><Cerveza key={cerveza.Nombre} marca={cerveza.Nombre} envase={cerveza.Envase}/>)
+  }
+
+  render() {
+   let cervezas = this.getCervezas()
+    return (
+      <main>
+        <h1>Mi lista de cervezas</h1>
+        {cervezas}
+      </main>
     );
   }
 }
