@@ -4,7 +4,10 @@ export default class App extends Component {
 
   getCervezas() {
     var cervezas = require('./cervezas.json')
-    return cervezas.map(cerveza =><Cerveza key={cerveza.Nombre} marca={cerveza.Nombre} envase={cerveza.Envase}/>)
+    return cervezas.map(cerveza =><Cerveza key={cerveza.Nombre} 
+    								marca={cerveza.Nombre} 
+    								envase={cerveza.Envase}
+    								desc={cerveza.Descripción}/>)
   }
 
   render() {
