@@ -3,6 +3,14 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
 
+const styles = {
+  container: {
+    width:'800px',
+    margin: '0 auto'
+  }
+}
+
+
 export default class Menu extends React.Component {
 
   constructor(props) {
@@ -14,7 +22,7 @@ export default class Menu extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.container}>
         <RaisedButton
           label="Toggle Drawer"
           onTouchTap={this.handleToggle}

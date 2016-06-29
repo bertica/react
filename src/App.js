@@ -6,6 +6,8 @@ import Cervezas from './views/Cervezas'
 import Template from './layout/Template'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // Needed for onTouchTap
 // Check this repo:
@@ -15,16 +17,18 @@ injectTapEventPlugin();
 export default class App extends Component {
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path='/' component={Template}>
-          /*observa que definimos IndexRoute, que será la ruta por defecto*/
-          /*Todas las rutas siguientes están anidadas dentro de template, es decir
-          son hijas de la anterior y desde la template cargaremos la que corresponda*/
-          <IndexRoute component={Index}/>
-          <Route path='/cervezas' component={Cervezas}/>
-          <Route path='/contactar' component={Contactar}/>
-        </Route>
-      </Router>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+	      <Router history={browserHistory}>
+	        <Route path='/' component={Template}>
+	          /*observa que definimos IndexRoute, que será la ruta por defecto*/
+	          /*Todas las rutas siguientes están anidadas dentro de template, es decir
+	          son hijas de la anterior y desde la template cargaremos la que corresponda*/
+	          <IndexRoute component={Index}/>
+	          <Route path='/cervezas' component={Cervezas}/>
+	          <Route path='/contactar' component={Contactar}/>
+	        </Route>
+	      </Router>
+      </MuiThemeProvider>
     )
   }
 }
