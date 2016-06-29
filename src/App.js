@@ -1,22 +1,17 @@
-import React, { Component } from 'react';
-import Cerveza from './Cerveza'
+import React, { Component } from 'react'
+import { Router, Route, browserHistory } from 'react-router'
+import Index from './views/Index'
+import Contactar from './views/Contactar'
+import Cervezas from './views/Cervezas'
+
 export default class App extends Component {
-
-  getCervezas() {
-    var cervezas = require('./cervezas.json')
-    return cervezas.map(cerveza =><Cerveza key={cerveza.Nombre} 
-    								marca={cerveza.Nombre} 
-    								envase={cerveza.Envase}
-    								desc={cerveza.Descripción}/>)
-  }
-
   render() {
-   let cervezas = this.getCervezas()
     return (
-      <main>
-        <h1>Mi lista de cervezas</h1>
-        {cervezas}
-      </main>
-    );
+      <Router history={browserHistory}>
+        <Route path="/" component={Index}/>
+        <Route path="/cervezas" component={Cervezas}/>
+        <Route path="/contactar" component={Contactar}/>
+      </Router>
+    )
   }
 }
